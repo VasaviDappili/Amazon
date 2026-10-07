@@ -4,30 +4,18 @@
 import time
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-# =======================================================
-# CHROME CONFIGURATION
-# =======================================================
 chrome_options = Options()
 chrome_options.add_experimental_option("detach", True)
 chrome_options.add_argument("--disable-blink-features=AutomationControlled")
 driver = webdriver.Chrome(options=chrome_options)
 driver.maximize_window()
-# =======================================================
-# PRODUCT DETAILS
-# =======================================================
 product_asin = "B071Z8M4KX"
 product_url = f"https://www.amazon.in/dp/{product_asin}"
-# =======================================================
-# TAB 1: OPEN PRODUCT PAGE
-# =======================================================
 print("Step 1: Opening Product Page...")
 driver.get(product_url)
 tab_product = driver.current_window_handle
 time.sleep(3)
 print("✓ Product page opened")
-# =======================================================
-# TAB 2: ADD PRODUCT TO CART
-# =======================================================
 print("\nStep 2: Opening Cart tab...")
 driver.switch_to.new_window("tab")
 tab_cart = driver.current_window_handle
@@ -51,9 +39,6 @@ driver.get(
 time.sleep(3)
 
 print("✓ Cart page opened")
-# =======================================================
-# TAB 3: WISHLIST
-# =======================================================
 
 print("\nStep 4: Opening Wishlist tab...")
 
@@ -68,10 +53,6 @@ driver.get(
 time.sleep(3)
 
 print("✓ Wishlist page opened")
-# =======================================================
-# FINAL RESULT
-# =======================================================
-
 print("\n=======================================================")
 print("AUTOMATION COMPLETED")
 print("=======================================================")
@@ -82,10 +63,6 @@ print("✓ Product added to Cart")
 print("✓ Tab 3 → Wishlist Page")
 
 print("=======================================================")
-
-# =======================================================
-# KEEP CHROME OPEN
-# =======================================================
 
 input(
     "\nPress ENTER here in the terminal when you want to close Chrome..."
